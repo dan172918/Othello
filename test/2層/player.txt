@@ -1,0 +1,120 @@
+row : 3
+col : 5
+player
+
+row : 4
+col : 6
+player
+
+row : 4
+col : 3
+player
+
+row : 4
+col : 7
+player
+
+row : 4
+col : 2
+player
+
+row : 4
+col : 1
+player
+
+row : 6
+col : 3
+player
+
+row : 2
+col : 4
+player
+
+row : 1
+col : 5
+player
+
+row : 3
+col : 1
+player
+
+row : 2
+col : 5
+player
+
+row : 3
+col : 7
+player
+
+row : 6
+col : 5
+player
+
+row : 6
+col : 1
+player
+
+row : 3
+col : 8
+player
+
+row : 6
+col : 8
+player
+
+row : 5
+col : 7
+player
+
+row : 1
+col : 1
+player
+
+row : 1
+col : 2
+player
+
+row : 6
+col : 4
+player
+
+row : 8
+col : 4
+player
+
+row : 8
+col : 1
+player
+
+row : 1
+col : 6
+player
+
+row : 1
+col : 8
+player
+
+row : 1
+col : 7
+player
+
+row : 8
+col : 3
+player
+
+row : 8
+col : 8
+player
+
+row : 7
+col : 5
+player
+
+row : 7
+col : 6
+player
+
+row : 8
+col : 7
+player
+

@@ -1,0 +1,90 @@
+AI (3 , 4)
+node : 24381 time : 0.043
+
+AI (4 , 7)
+node : 47500 time : 0.081
+
+AI (2 , 4)
+node : 71518 time : 0.131
+
+AI (1 , 4)
+node : 110557 time : 0.168
+
+AI (1 , 6)
+node : 209408 time : 0.294
+
+AI (4 , 8)
+node : 240983 time : 0.283
+
+AI (1 , 5)
+node : 186370 time : 0.23
+
+AI (6 , 7)
+node : 345733 time : 0.414
+
+AI (4 , 2)
+node : 375153 time : 0.553
+
+AI (3 , 2)
+node : 370275 time : 0.555
+
+AI (5 , 2)
+node : 365736 time : 0.535
+
+AI (6 , 2)
+node : 223232 time : 0.329
+
+AI (3 , 6)
+node : 316865 time : 0.598
+
+AI (4 , 1)
+node : 253745 time : 0.39
+
+AI (6 , 1)
+node : 370912 time : 0.522
+
+AI (7 , 4)
+node : 256906 time : 0.378
+
+AI (5 , 6)
+node : 175684 time : 0.251
+
+AI (5 , 8)
+node : 98933 time : 0.122
+
+AI (2 , 7)
+node : 213823 time : 0.261
+
+AI (2 , 2)
+node : 104100 time : 0.161
+
+AI (7 , 5)
+node : 394981 time : 0.518
+
+AI (8 , 2)
+node : 202363 time : 0.246
+
+AI (2 , 8)
+node : 91531 time : 0.112
+
+AI (8 , 6)
+node : 53730 time : 0.06
+
+AI (7 , 8)
+node : 42853 time : 0.044
+
+AI (7 , 2)
+node : 13094 time : 0.014
+
+AI (2 , 1)
+node : 1029 time : 0.001
+
+AI (8 , 1)
+node : 86 time : 0
+
+AI (7 , 7)
+node : 9 time : 0
+
+AI (7 , 6)
+node : 2 time : 0
+
