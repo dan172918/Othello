@@ -1,0 +1,297 @@
+    1  2  3  4  5  6  
+
+ 1  O  O  O  O  O  - 
+
+ 2  O  O  O  O  -  - 
+
+ 3  O  O  O  O  O  - 
+
+ 4  -  -  -  -  -  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 14   X : 0	player(O)	->AI(X)
+leaf Node : (3,5) depth : 0 Value : 14
+
+    1  2  3  4  5  6  
+
+ 1  O  O  O  O  O  - 
+
+ 2  O  O  O  O  -  - 
+
+ 3  O  O  O  O  -  - 
+
+ 4  -  -  -  O  -  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 14   X : 0	player(O)	->AI(X)
+leaf Node : (4,4) depth : 0 Value : 14
+
+    1  2  3  4  5  6  
+
+ 1  O  O  O  O  O  - 
+
+ 2  O  O  O  O  -  - 
+
+ 3  O  O  O  O  -  - 
+
+ 4  -  -  -  -  O  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 14   X : 0	player(O)	->AI(X)
+leaf Node : (4,5) depth : 0 Value : 14
+
+    1  2  3  4  5  6  
+
+ 1  O  O  O  O  O  - 
+
+ 2  O  O  O  O  -  - 
+
+ 3  O  O  O  X  -  - 
+
+ 4  -  -  -  -  -  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 12   X : 1	->player(O)	AI(X)
+parent Node : (1,5) depth : 1 Value : -14
+child Node :
+( 3,5 ) ( 4,4 ) ( 4,5 ) 
+    1  2  3  4  5  6  
+
+ 1  O  O  O  O  O  - 
+
+ 2  O  O  O  O  -  - 
+
+ 3  O  O  O  X  -  - 
+
+ 4  -  -  -  -  -  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 12   X : 1	player(O)	->AI(X)
+parent Node : (1,5) depth : 1 Value : 14
+child Node :
+
+    1  2  3  4  5  6  
+
+ 1  O  O  O  X  -  X 
+
+ 2  O  O  O  O  X  - 
+
+ 3  O  O  O  X  -  - 
+
+ 4  -  -  -  -  -  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 10   X : 4	->player(O)	AI(X)
+leaf Node : (1,6) depth : 0 Value : -6
+
+    1  2  3  4  5  6  
+
+ 1  O  O  O  X  -  - 
+
+ 2  O  O  O  O  X  - 
+
+ 3  O  O  O  X  -  X 
+
+ 4  -  -  -  -  -  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 10   X : 4	->player(O)	AI(X)
+leaf Node : (3,6) depth : 0 Value : -6
+
+    1  2  3  4  5  6  
+
+ 1  O  O  O  X  -  - 
+
+ 2  O  O  X  O  O  - 
+
+ 3  O  X  O  X  -  - 
+
+ 4  X  -  -  -  -  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 9   X : 5	->player(O)	AI(X)
+leaf Node : (4,1) depth : 0 Value : -4
+
+    1  2  3  4  5  6  
+
+ 1  O  O  O  X  -  - 
+
+ 2  O  O  O  O  O  - 
+
+ 3  O  O  O  X  -  - 
+
+ 4  -  -  -  -  -  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 11   X : 2	player(O)	->AI(X)
+parent Node : (2,5) depth : 1 Value : 6
+child Node :
+( 1,6 ) ( 3,6 ) ( 4,1 ) 
+    1  2  3  4  5  6  
+
+ 1  O  O  O  X  -  - 
+
+ 2  O  O  X  O  -  - 
+
+ 3  O  X  O  O  O  - 
+
+ 4  X  -  -  -  -  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 10   X : 4	->player(O)	AI(X)
+leaf Node : (4,1) depth : 0 Value : -6
+
+    1  2  3  4  5  6  
+
+ 1  O  O  O  X  -  - 
+
+ 2  O  O  O  X  -  - 
+
+ 3  O  O  O  X  O  - 
+
+ 4  -  -  -  X  -  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 10   X : 4	->player(O)	AI(X)
+leaf Node : (4,4) depth : 0 Value : -6
+
+    1  2  3  4  5  6  
+
+ 1  O  O  O  X  -  - 
+
+ 2  O  O  O  O  -  - 
+
+ 3  O  O  O  O  O  - 
+
+ 4  -  -  -  -  -  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 12   X : 1	player(O)	->AI(X)
+parent Node : (3,5) depth : 1 Value : 6
+child Node :
+( 4,1 ) ( 4,4 ) 
+    1  2  3  4  5  6  
+
+ 1  O  O  O  X  -  - 
+
+ 2  O  O  X  X  -  - 
+
+ 3  O  X  O  O  -  - 
+
+ 4  X  -  -  -  O  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 9   X : 5	->player(O)	AI(X)
+leaf Node : (4,1) depth : 0 Value : -4
+
+    1  2  3  4  5  6  
+
+ 1  O  O  O  X  -  - 
+
+ 2  O  O  O  X  -  - 
+
+ 3  O  O  X  O  -  - 
+
+ 4  -  X  -  -  O  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 10   X : 4	->player(O)	AI(X)
+leaf Node : (4,2) depth : 0 Value : -6
+
+    1  2  3  4  5  6  
+
+ 1  O  O  O  X  -  - 
+
+ 2  O  O  O  X  -  - 
+
+ 3  O  O  O  X  -  - 
+
+ 4  -  -  -  X  O  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 10   X : 4	->player(O)	AI(X)
+leaf Node : (4,4) depth : 0 Value : -6
+
+    1  2  3  4  5  6  
+
+ 1  O  O  O  X  -  - 
+
+ 2  O  O  O  X  -  - 
+
+ 3  O  O  O  O  -  - 
+
+ 4  -  -  -  -  O  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 11   X : 2	player(O)	->AI(X)
+parent Node : (4,5) depth : 1 Value : 6
+child Node :
+( 4,1 ) ( 4,2 ) ( 4,4 ) 
+    1  2  3  4  5  6  
+
+ 1  O  O  O  X  -  - 
+
+ 2  O  O  O  X  -  - 
+
+ 3  O  O  O  X  -  - 
+
+ 4  -  -  -  -  -  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 9   X : 3	->player(O)	AI(X)
+parent Node : (1,4) depth : 2 Value : -6
+child Node :
+( 1,5 ) ( 2,5 ) ( 3,5 ) ( 4,5 ) 
+    1  2  3  4  5  6  
+
+ 1  O  O  O  -  -  - 
+
+ 2  O  O  O  O  -  - 
+
+ 3  O  O  O  X  -  - 
+
+ 4  -  -  -  -  -  - 
+
+ 5  -  -  -  -  -  - 
+
+ 6  -  -  -  -  -  - 
+ O : 10   X : 1	player(O)	->AI(X)
+parent Node : (1,4) depth : 3 Value : -6
+child Node :
+( 1,4 ) 
+
+AI : ( 1,4 )

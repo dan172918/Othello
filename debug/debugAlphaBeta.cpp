@@ -1,29 +1,23 @@
 #include"lib.h"
 #define Size 9
-#define limitDep 9
+//#define limitDep 9
 using namespace std;
 int dir[8][2]={{-1,0},{-1,1},{0,1},{1,1},{1,0},{1,-1},{0,-1},{-1,-1}};
 double START,END;
-int black=2,white=2,player=1;
-int nodetotal = 0;
-fstream file1,LogCheckerboard;
-int PriorityArr[Size][Size]={{0,0,0,0,0,0,0,0,0},
-							 {0,4,0,3,3,3,3,0,4},
-							 {0,0,0,2,2,2,2,0,0},
-							 {0,3,2,1,1,1,1,2,3},
-							 {0,3,2,1,1,1,1,2,3},
-							 {0,3,2,1,1,1,1,2,3},
-							 {0,3,2,1,1,1,1,2,3},
-							 {0,0,0,2,2,2,2,0,0},
-							 {0,4,0,3,3,3,3,0,4}};
-int lastNode[9];
+int black=2,white=2,player=1,limitDep,nodetotal;
+fstream LogCheckerboard,file1;
+
 struct Node{
 	int row,col,dir;
 	Node(int r,int c):row(r),col(c),dir(0){}
 	Node(int r,int c,int d):row(r),col(c),dir(d){}
 };
 
-Node sn(3,3),en(6,6); 
+int Max(int a,int b){
+	return (a>b)?a:b;
+}
+
+Node sn((Size-1)/2-1,(Size-1)/2-1),en((Size-1)/2+2,(Size-1)/2+2); 
 void updateNode(int checkerboard[][Size],Node &sn,Node &en,int row,int col){
 	if(sn.row==row){
 		if(sn.row!=1&&checkerboard[row-1][0]!=8)
@@ -50,45 +44,53 @@ void updateNode(int checkerboard[][Size],Node &sn,Node &en,int row,int col){
 			en.col--;
 	}
 }
-void printCheckerboard(int checkerboard[][Size]){
-	system("cls");
-	cout<<"    ";
+
+void outputCheckerboard(int checkerboard[][Size]){
 	LogCheckerboard<<"    ";
 	for(int i=0;i<Size;i++){
 		for(int j=1;j<Size;j++){
-			if(i==0){
-				cout<<j<<"  ";	
-				LogCheckerboard<<j<<"  ";	
-			}
+			if(i==0)
+				LogCheckerboard<<j<<"  ";
 			else
-				if(checkerboard[i][j]==0){
-					cout<<" - ";	
-					LogCheckerboard<<" - ";	
-				}
-				else if(checkerboard[i][j]==1){
-					cout<<" O ";
-					LogCheckerboard<<" O ";	
-				}
-				else{
-					cout<<" X ";
-					LogCheckerboard<<" X ";					
-				}
+				if(checkerboard[i][j]==0)
+					LogCheckerboard<<" - ";
+				else if(checkerboard[i][j]==1)
+					LogCheckerboard<<" O ";
+				else
+					LogCheckerboard<<" X ";
 		}
-		if(i!=8){
-			cout<<"\n\n "<<i+1<<" ";
+		if(i!=8)
 			LogCheckerboard<<"\n\n "<<i+1<<" ";			
+	}
+	LogCheckerboard<<"\n O : "<<black<<"   X : "<<white;
+	if(player)
+		LogCheckerboard<<"\t->player(O)\tAI(X)"<<endl;		
+	else
+		LogCheckerboard<<"\tplayer(O)\t->AI(X)"<<endl;		
+}
+void printCheckerboard(int checkerboard[][Size]){
+	system("cls");
+	cout<<"    ";
+	for(int i=0;i<Size;i++){
+		for(int j=1;j<Size;j++){
+			if(i==0)
+				cout<<j<<"  ";	
+			else
+				if(checkerboard[i][j]==0)
+					cout<<" - ";
+				else if(checkerboard[i][j]==1)
+					cout<<" O ";
+				else
+					cout<<" X ";
 		}
+		if(i!=8)
+			cout<<"\n\n "<<i+1<<" ";
 	}
 	cout<<"\n O : "<<black<<"   X : "<<white;
-	LogCheckerboard<<"\n O : "<<black<<"   X : "<<white;
-	if(player){
+	if(player)
 		cout<<"\t->player(O)\tAI(X)"<<endl;
-		LogCheckerboard<<"\t->player(O)\tAI(X)"<<endl;		
-	}
-	else{
+	else
 		cout<<"\tplayer(O)\t->AI(X)"<<endl;
-		LogCheckerboard<<"\tplayer(O)\t->AI(X)"<<endl;		
-	}
 }
 
 bool updateCheckerboard(int checkerboard[][Size],Node node,int &black,int &white,int player){
@@ -163,41 +165,6 @@ bool checkCanPlayChess(int checkerboard[][Size],int player,Node sn,Node en){
 	return false;
 }
 
-void playerChess(int checkerboard[][Size]){
-	Node node(0,0);
-	if(!checkCanPlayChess(checkerboard,player,sn,en)){
-		player = 0;
-		cout<<"無可下位置，換AI";
-		_sleep(0.5*1000);
-		return ;
-	}
-	while(1){
-		cout<<"\nrow(列) : "; 
-		cin>>node.row;
-		cout<<"col(行) : ";
-		cin>>node.col;
-		if(node.row<1||node.row>8||node.col<1||node.col>8)
-			continue;
-		if(checkerboard[node.row][node.col]==0){
-			bool Invalid = updateCheckerboard(checkerboard,node,black,white,player);
-			if(!Invalid){
-				cout<<"輸入錯誤\n";
-				_sleep(0.5*1000);
-			}
-			else{
-				LogCheckerboard<<endl<<"player : ( "<<node.row<<","<<node.col<<" )"<<endl;
-				updateNode(checkerboard,sn,en,node.row,node.col);
-				player = 0;
-				return;	
-			}
-		}
-		else{
-			cout<<"輸入錯誤\n";
-			_sleep(0.5*1000);
-		}
-	}
-}
-
 bool isGameOver(int checkerboard[][Size],int black,int white,Node sn,Node en){
 	if(black+white==64||white==0||black==0||!(checkCanPlayChess(checkerboard,0,sn,en)||checkCanPlayChess(checkerboard,1,sn,en)))
 		return true;
@@ -206,7 +173,7 @@ bool isGameOver(int checkerboard[][Size],int black,int white,Node sn,Node en){
 }
 
 vector<Node> findnode(int checkerboard[][Size],int player,Node sn,Node en){
-	vector<Node> arr,f,s;
+	vector<Node> arr;
 	for(int i=sn.row;i<=en.row;i++){
 		for(int j=sn.col;j<=en.col;j++){
 			bool find = false; 
@@ -220,16 +187,6 @@ vector<Node> findnode(int checkerboard[][Size],int player,Node sn,Node en){
 				yStart+=dir[k][1];
 				while(xStart>0&&xStart<Size&&yStart>0&&yStart<Size&&checkerboard[xStart][yStart]!=0){
 					if((player&&checkerboard[xStart][yStart]==1)||(!player&&checkerboard[xStart][yStart]==-1)){
-//						if(PriorityArr[i][j]==4)
-//							f.insert(f.begin(),Node(i,j,k));
-//						else if(PriorityArr[i][j]==3)
-//							f.push_back(Node(i,j,k));
-//						else if(PriorityArr[i][j]==2)
-//							s.insert(s.begin(),Node(i,j,k));
-//						else if(PriorityArr[i][j]==1)
-//							s.push_back(Node(i,j,k));
-//						else
-//							arr.push_back(Node(i,j,k));
 						arr.push_back(Node(i,j,k));
 						find = true;
 						break;
@@ -242,97 +199,123 @@ vector<Node> findnode(int checkerboard[][Size],int player,Node sn,Node en){
 			}
 		}		
 	}
-//	arr.insert(arr.begin(),s.begin(),s.end());
-//	arr.insert(arr.begin(),f.begin(),f.end());
 	return arr;
 }
 
-Node ans(0,0);
-int Minimax(int checkerboard[][Size],int black,int white,int player,int depth,Node sn,Node en){
-	nodetotal++;
-	int m;
-	if(depth==0||isGameOver(checkerboard,black,white,sn,en)){
-		if(player)
-			return white-black;
-		else
-			return black-white;
-	}
+int AlphaBeta(int checkerboard[][Size],int alpha,int beta,int black,int white,int player,int depth,Node sn,Node en){
+	if(depth==0||isGameOver(checkerboard,black,white,sn,en))
+		return (player)?white-black:black-white;
 	else{
 		vector<Node> arr = findnode(checkerboard,player,sn,en);
+		nodetotal+=arr.size();
+		int m=-1000,t;
 		if(arr.size()==0)
-			m=-1*Minimax(checkerboard,black,white,!player,depth,sn,en);
+			m=-1*AlphaBeta(checkerboard,-1*beta,-1*alpha,black,white,!player,depth,sn,en);
 		else{
-			m=INT_MIN;
 			for(int i=0;i<arr.size();i++){
 				int temp[Size][Size],tempB=black,tempW=white;
 				Node tempSn=sn,tempEn=en;
 				memcpy(temp,checkerboard,sizeof(temp));
 				updateCheckerboard(temp,arr[i],tempB,tempW,player);
 				updateNode(temp,tempSn,tempEn,arr[i].row,arr[i].col);
-				int t=-1*Minimax(temp,tempB,tempW,!player,depth-1,tempSn,tempEn);
 				if(depth==limitDep)
-					t*=-1;
-				if(t>m){
+					t=AlphaBeta(temp,alpha,beta,tempB,tempW,!player,depth-1,tempSn,tempEn);
+				else
+					t=-1*AlphaBeta(temp,-1*beta,-1*Max(m,alpha),tempB,tempW,!player,depth-1,tempSn,tempEn);
+				if(t>m)
 					m=t;
-					if(depth==limitDep){
-						ans=arr[i];	
-					}
-				}
+				if(m>=beta)
+					return m;
 			}	
 		}
+		return m;
 	}
-	return m;
 }
 
 void AIChess(int checkerboard[][Size]){
 	nodetotal = 0;
-	if(!checkCanPlayChess(checkerboard,player,sn,en)){
-		player = 1;
-		cout<<"無可下位置，換玩家";
-		_sleep(0.5*1000);
-		return ;
-	}
 	int temp[Size][Size];
 	memcpy(temp,checkerboard,sizeof(temp));
 	START = clock();
-	Minimax(temp,black,white,player,limitDep,sn,en);
+	AlphaBeta(temp,-1000,1000,black,white,player,limitDep,sn,en);
 	END = clock();
-	file1<<(END - START)/CLOCKS_PER_SEC<<","<<nodetotal<<endl;
-	updateCheckerboard(checkerboard,ans,black,white,player);
-	updateNode(checkerboard,sn,en,ans.row,ans.col);
-	player = 1;
-	LogCheckerboard<<endl<<"AI : ( "<<ans.row<<","<<ans.col<<" )"<<endl;
+	LogCheckerboard<<(END - START)/CLOCKS_PER_SEC<<","<<nodetotal<<",";
 }
 
-
-
-int main(){
-	file1.open("./test/"+to_string(limitDep-1)+"/Minimax.csv",ios::out);
-	file1<<"depth "+to_string(limitDep-1)+" :"<<endl;
-	file1<<"Time,Node"<<endl;
-	LogCheckerboard.open("./test/"+to_string(limitDep-1)+"/board.txt",ios::out);
-	int checkerboard[Size][Size];
-	memset (checkerboard,0,sizeof(checkerboard));
-	checkerboard[4][4]=checkerboard[5][5]=1; checkerboard[4][5]=checkerboard[5][4]=-1;
-	checkerboard[4][0]=checkerboard[5][0]=checkerboard[0][4]=checkerboard[0][5]=2;
-	printCheckerboard(checkerboard);
-	while(1){
-		if(player)
-			playerChess(checkerboard);
-		else
-			AIChess(checkerboard);	
-		printCheckerboard(checkerboard);
-		if(isGameOver(checkerboard,black,white,sn,en)){
-			break;
+void updateInitialNode(int checkerboard[][Size]){
+	for(int i=1;i<Size;i++){
+		if(checkerboard[i][0]==8)
+			continue;
+		if(checkerboard[i][0]!=0){
+			sn.row=(i!=1)?((checkerboard[i-1][0]!=8)?i-1:i):i;
+		break;
 		}
 	}
-	if(white==0||(black+white==64&&black>white))
-		cout<<"player is win";
-	else if(black==0||(black+white==64&&white>black))
-		cout<<"AI is win";
-	else if(black+white==64&&white==black)
-		cout<<"Tie";
-	file1.close();
+	for(int i=Size-1;i>0;i--){
+		if(checkerboard[i][0]==8)
+			continue;
+		if(checkerboard[i][0]!=0){
+			en.row=(i!=Size-1)?((checkerboard[i+1][0]!=8)?i+1:i):i;
+		break;
+		}
+	}
+	
+	for(int i=1;i<Size;i++){
+		if(checkerboard[0][i]==8)
+			continue;
+		if(checkerboard[0][i]!=0){
+			sn.col=(i!=1)?((checkerboard[0][i-1]!=8)?i-1:i):i;
+		break;
+		}
+	}
+	for(int i=Size-1;i>0;i--){
+		if(checkerboard[0][i]==8)
+			continue;
+		if(checkerboard[0][i]!=0){
+			en.col=(i!=Size-1)?((checkerboard[0][i+1]!=8)?i+1:i):i;
+		break;
+		}
+	}
+}
+
+int main(){
+	LogCheckerboard.open("./Alpha-Beta.csv",ios::out);
+	LogCheckerboard<<"depth 2 :,,depth 4 :,,depth 6 :,,depth 8 :,,depth 10 :,,"<<endl;
+	LogCheckerboard<<"Time,Node,Time,Node,Time,Node,Time,Node,Time,Node"<<endl;
+	int checkerboard[Size][Size];
+	memset (checkerboard,0,sizeof(checkerboard));
+	
+	string str;
+	for(int i=1;i<=15;i++){
+		black=0;white=0;
+		memset (checkerboard,0,sizeof(checkerboard));
+		file1.open("./othello-initial board-400/"+to_string(i)+".txt",ios::in);
+		file1>>str;
+		player = (str=="o")?1:0;
+		for(int j=1;j<Size;j++){
+			file1>>str;
+			for(int k=1;k<Size;k++){
+				if(str[k-1]!='_'){
+					checkerboard[j][0]++;
+					checkerboard[0][k]++;
+					if(str[k-1]=='o'){
+						checkerboard[j][k]=1;
+						black++;
+					}
+					else{
+						checkerboard[j][k]=-1;
+						white++;
+					}
+				}
+			}
+		}
+		file1.close();
+		updateInitialNode(checkerboard);
+		for(limitDep=3;limitDep<12;limitDep+=2){
+			AIChess(checkerboard);
+		}
+		LogCheckerboard<<endl;
+	}
 	LogCheckerboard.close();
 }
 

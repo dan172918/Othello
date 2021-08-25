@@ -1,6 +1,6 @@
 #include"lib.h"
 #define Size 9
-#define limitDep 9
+#define limitDep 9 
 using namespace std;
 int dir[8][2]={{-1,0},{-1,1},{0,1},{1,1},{1,0},{1,-1},{0,-1},{-1,-1}};
 double START,END;
@@ -16,14 +16,17 @@ int PriorityArr[Size][Size]={{0,0,0,0,0,0,0,0,0},
 							 {0,3,2,1,1,1,1,2,3},
 							 {0,0,0,2,2,2,2,0,0},
 							 {0,4,0,3,3,3,3,0,4}};
-int lastNode[9];
 struct Node{
 	int row,col,dir;
 	Node(int r,int c):row(r),col(c),dir(0){}
 	Node(int r,int c,int d):row(r),col(c),dir(d){}
 };
 
-Node sn(3,3),en(6,6); 
+int Max(int a,int b){
+	return (a>b)?a:b;
+}
+
+Node sn(3,3),en(6,6);
 void updateNode(int checkerboard[][Size],Node &sn,Node &en,int row,int col){
 	if(sn.row==row){
 		if(sn.row!=1&&checkerboard[row-1][0]!=8)
@@ -50,6 +53,7 @@ void updateNode(int checkerboard[][Size],Node &sn,Node &en,int row,int col){
 			en.col--;
 	}
 }
+
 void printCheckerboard(int checkerboard[][Size]){
 	system("cls");
 	cout<<"    ";
@@ -248,9 +252,8 @@ vector<Node> findnode(int checkerboard[][Size],int player,Node sn,Node en){
 }
 
 Node ans(0,0);
-int Minimax(int checkerboard[][Size],int black,int white,int player,int depth,Node sn,Node en){
+int Scout(int checkerboard[][Size],int alpha,int beta,int black,int white,int player,int depth,Node sn,Node en){
 	nodetotal++;
-	int m;
 	if(depth==0||isGameOver(checkerboard,black,white,sn,en)){
 		if(player)
 			return white-black;
@@ -258,30 +261,40 @@ int Minimax(int checkerboard[][Size],int black,int white,int player,int depth,No
 			return black-white;
 	}
 	else{
+		int m=-1000,n=beta,t;
 		vector<Node> arr = findnode(checkerboard,player,sn,en);
 		if(arr.size()==0)
-			m=-1*Minimax(checkerboard,black,white,!player,depth,sn,en);
+			m=-1*Scout(checkerboard,-1*beta,-1*alpha,black,white,!player,depth,sn,en);
 		else{
-			m=INT_MIN;
 			for(int i=0;i<arr.size();i++){
 				int temp[Size][Size],tempB=black,tempW=white;
 				Node tempSn=sn,tempEn=en;
 				memcpy(temp,checkerboard,sizeof(temp));
 				updateCheckerboard(temp,arr[i],tempB,tempW,player);
 				updateNode(temp,tempSn,tempEn,arr[i].row,arr[i].col);
-				int t=-1*Minimax(temp,tempB,tempW,!player,depth-1,tempSn,tempEn);
-				if(depth==limitDep)
-					t*=-1;
-				if(t>m){
-					m=t;
-					if(depth==limitDep){
-						ans=arr[i];	
-					}
+				if(depth==limitDep){
+					t=Scout(temp,alpha,beta,tempB,tempW,!player,depth-1,tempSn,tempEn);
+					if(t>m){
+						m=t;
+						ans=arr[i];							
+					}					
 				}
+				else
+					t=-1*Scout(temp,-1*n,-1*Max(m,alpha),tempB,tempW,!player,depth-1,tempSn,tempEn);
+				if(t>m&&depth!=limitDep){
+					if(n==beta||depth<3||t>=beta)
+						m=t;
+					else
+						m=-1*Scout(temp,-1*beta,-1*t,tempB,tempW,!player,depth-1,tempSn,tempEn);
+
+				}
+				if(m>=beta)
+					return m;
+				n=max(alpha,m)+1;
 			}	
 		}
+		return m;
 	}
-	return m;
 }
 
 void AIChess(int checkerboard[][Size]){
@@ -295,7 +308,7 @@ void AIChess(int checkerboard[][Size]){
 	int temp[Size][Size];
 	memcpy(temp,checkerboard,sizeof(temp));
 	START = clock();
-	Minimax(temp,black,white,player,limitDep,sn,en);
+	Scout(temp,-1000,1000,black,white,player,limitDep,sn,en);
 	END = clock();
 	file1<<(END - START)/CLOCKS_PER_SEC<<","<<nodetotal<<endl;
 	updateCheckerboard(checkerboard,ans,black,white,player);
@@ -307,10 +320,10 @@ void AIChess(int checkerboard[][Size]){
 
 
 int main(){
-	file1.open("./test/"+to_string(limitDep-1)+"/Minimax.csv",ios::out);
+	file1.open("./test/"+to_string(limitDep-1)+"S/Scout.csv",ios::out|ios::trunc);
 	file1<<"depth "+to_string(limitDep-1)+" :"<<endl;
 	file1<<"Time,Node"<<endl;
-	LogCheckerboard.open("./test/"+to_string(limitDep-1)+"/board.txt",ios::out);
+	LogCheckerboard.open("./test/"+to_string(limitDep-1)+"S/Scout.txt",ios::out|ios::trunc);
 	int checkerboard[Size][Size];
 	memset (checkerboard,0,sizeof(checkerboard));
 	checkerboard[4][4]=checkerboard[5][5]=1; checkerboard[4][5]=checkerboard[5][4]=-1;
@@ -326,13 +339,14 @@ int main(){
 			break;
 		}
 	}
-	if(white==0||(black+white==64&&black>white))
+	if(black>white)
 		cout<<"player is win";
-	else if(black==0||(black+white==64&&white>black))
+	else if(white>black)
 		cout<<"AI is win";
-	else if(black+white==64&&white==black)
+	else
 		cout<<"Tie";
 	file1.close();
 	LogCheckerboard.close();
+
 }
 
