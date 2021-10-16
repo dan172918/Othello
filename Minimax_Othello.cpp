@@ -220,17 +220,17 @@ vector<Node> findnode(int checkerboard[][Size],int player,Node sn,Node en){
 				yStart+=dir[k][1];
 				while(xStart>0&&xStart<Size&&yStart>0&&yStart<Size&&checkerboard[xStart][yStart]!=0){
 					if((player&&checkerboard[xStart][yStart]==1)||(!player&&checkerboard[xStart][yStart]==-1)){
-//						if(PriorityArr[i][j]==4)
-//							f.insert(f.begin(),Node(i,j,k));
-//						else if(PriorityArr[i][j]==3)
-//							f.push_back(Node(i,j,k));
-//						else if(PriorityArr[i][j]==2)
-//							s.insert(s.begin(),Node(i,j,k));
-//						else if(PriorityArr[i][j]==1)
-//							s.push_back(Node(i,j,k));
-//						else
-//							arr.push_back(Node(i,j,k));
-						arr.push_back(Node(i,j,k));
+						if(PriorityArr[i][j]==4)
+							f.insert(f.begin(),Node(i,j,k));
+						else if(PriorityArr[i][j]==3)
+							f.push_back(Node(i,j,k));
+						else if(PriorityArr[i][j]==2)
+							s.insert(s.begin(),Node(i,j,k));
+						else if(PriorityArr[i][j]==1)
+							s.push_back(Node(i,j,k));
+						else
+							arr.push_back(Node(i,j,k));
+//						arr.push_back(Node(i,j,k));
 						find = true;
 						break;
 					}
@@ -242,8 +242,8 @@ vector<Node> findnode(int checkerboard[][Size],int player,Node sn,Node en){
 			}
 		}		
 	}
-//	arr.insert(arr.begin(),s.begin(),s.end());
-//	arr.insert(arr.begin(),f.begin(),f.end());
+	arr.insert(arr.begin(),s.begin(),s.end());
+	arr.insert(arr.begin(),f.begin(),f.end());
 	return arr;
 }
 
@@ -272,6 +272,9 @@ int Minimax(int checkerboard[][Size],int black,int white,int player,int depth,No
 				int t=-1*Minimax(temp,tempB,tempW,!player,depth-1,tempSn,tempEn);
 				if(depth==limitDep)
 					t*=-1;
+				if(depth==limitDep){
+					cout<<arr[i].row<<","<<arr[i].col<<","<<t<<endl;
+				}
 				if(t>m){
 					m=t;
 					if(depth==limitDep){
@@ -302,6 +305,7 @@ void AIChess(int checkerboard[][Size]){
 	updateNode(checkerboard,sn,en,ans.row,ans.col);
 	player = 1;
 	LogCheckerboard<<endl<<"AI : ( "<<ans.row<<","<<ans.col<<" )"<<endl;
+	_sleep(10000);
 }
 
 
@@ -326,12 +330,13 @@ int main(){
 			break;
 		}
 	}
-	if(white==0||(black+white==64&&black>white))
+	if(black>white)
 		cout<<"player is win";
-	else if(black==0||(black+white==64&&white>black))
+	else if(white>black)
 		cout<<"AI is win";
-	else if(black+white==64&&white==black)
+	else
 		cout<<"Tie";
+		
 	file1.close();
 	LogCheckerboard.close();
 }

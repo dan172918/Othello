@@ -1,5 +1,21 @@
+    1  2  3  4  5  6  7  8  
 
-player : ( 3,5 )
+ 1  -  -  -  -  -  -  -  - 
+
+ 2  -  -  -  -  -  -  -  - 
+
+ 3  -  -  -  -  -  -  -  - 
+
+ 4  -  -  -  O  X  -  -  - 
+
+ 5  -  -  -  X  O  -  -  - 
+
+ 6  -  -  -  -  -  -  -  - 
+
+ 7  -  -  -  -  -  -  -  - 
+
+ 8  -  -  -  -  -  -  -  - 
+ O : 2   X : 2	->player(O)	AI(X)
     1  2  3  4  5  6  7  8  
 
  1  -  -  -  -  -  -  -  - 
@@ -17,9 +33,7 @@ player : ( 3,5 )
  7  -  -  -  -  -  -  -  - 
 
  8  -  -  -  -  -  -  -  - 
- O : 4   X : 1	player(O)	->AI(X)
-
-AI : ( 3,4 )
+ O : 4   X : 1	->player(O)	AI(X)
     1  2  3  4  5  6  7  8  
 
  1  -  -  -  -  -  -  -  - 
@@ -38,8 +52,6 @@ AI : ( 3,4 )
 
  8  -  -  -  -  -  -  -  - 
  O : 3   X : 3	->player(O)	AI(X)
-
-player : ( 4,3 )
     1  2  3  4  5  6  7  8  
 
  1  -  -  -  -  -  -  -  - 
@@ -57,9 +69,7 @@ player : ( 4,3 )
  7  -  -  -  -  -  -  -  - 
 
  8  -  -  -  -  -  -  -  - 
- O : 5   X : 2	player(O)	->AI(X)
-
-AI : ( 3,2 )
+ O : 5   X : 2	->player(O)	AI(X)
     1  2  3  4  5  6  7  8  
 
  1  -  -  -  -  -  -  -  - 
@@ -78,8 +88,6 @@ AI : ( 3,2 )
 
  8  -  -  -  -  -  -  -  - 
  O : 4   X : 4	->player(O)	AI(X)
-
-player : ( 4,2 )
     1  2  3  4  5  6  7  8  
 
  1  -  -  -  -  -  -  -  - 
@@ -97,9 +105,7 @@ player : ( 4,2 )
  7  -  -  -  -  -  -  -  - 
 
  8  -  -  -  -  -  -  -  - 
- O : 6   X : 3	player(O)	->AI(X)
-
-AI : ( 3,6 )
+ O : 6   X : 3	->player(O)	AI(X)
     1  2  3  4  5  6  7  8  
 
  1  -  -  -  -  -  -  -  - 
@@ -118,8 +124,6 @@ AI : ( 3,6 )
 
  8  -  -  -  -  -  -  -  - 
  O : 4   X : 6	->player(O)	AI(X)
-
-player : ( 4,6 )
     1  2  3  4  5  6  7  8  
 
  1  -  -  -  -  -  -  -  - 
@@ -137,9 +141,7 @@ player : ( 4,6 )
  7  -  -  -  -  -  -  -  - 
 
  8  -  -  -  -  -  -  -  - 
- O : 6   X : 5	player(O)	->AI(X)
-
-AI : ( 5,2 )
+ O : 6   X : 5	->player(O)	AI(X)
     1  2  3  4  5  6  7  8  
 
  1  -  -  -  -  -  -  -  - 
@@ -158,8 +160,6 @@ AI : ( 5,2 )
 
  8  -  -  -  -  -  -  -  - 
  O : 4   X : 8	->player(O)	AI(X)
-
-player : ( 4,1 )
     1  2  3  4  5  6  7  8  
 
  1  -  -  -  -  -  -  -  - 
@@ -177,9 +177,7 @@ player : ( 4,1 )
  7  -  -  -  -  -  -  -  - 
 
  8  -  -  -  -  -  -  -  - 
- O : 7   X : 6	player(O)	->AI(X)
-
-AI : ( 5,6 )
+ O : 7   X : 6	->player(O)	AI(X)
     1  2  3  4  5  6  7  8  
 
  1  -  -  -  -  -  -  -  - 
@@ -198,8 +196,6 @@ AI : ( 5,6 )
 
  8  -  -  -  -  -  -  -  - 
  O : 4   X : 10	->player(O)	AI(X)
-
-player : ( 2,6 )
     1  2  3  4  5  6  7  8  
 
  1  -  -  -  -  -  -  -  - 
@@ -217,9 +213,25 @@ player : ( 2,6 )
  7  -  -  -  -  -  -  -  - 
 
  8  -  -  -  -  -  -  -  - 
- O : 6   X : 9	player(O)	->AI(X)
+ O : 6   X : 9	->player(O)	AI(X)
+    1  2  3  4  5  6  7  8  
 
-AI : ( 1,6 )
+ 1  -  -  -  -  -  X  -  - 
+
+ 2  -  -  -  -  -  X  -  - 
+
+ 3  -  X  -  X  O  X  -  - 
+
+ 4  O  O  O  O  X  X  -  - 
+
+ 5  -  X  -  X  X  X  -  - 
+
+ 6  -  -  -  -  -  -  -  - 
+
+ 7  -  -  -  -  -  -  -  - 
+
+ 8  -  -  -  -  -  -  -  - 
+ O : 5   X : 11	->player(O)	AI(X)
     1  2  3  4  5  6  7  8  
 
  1  -  -  -  -  -  X  -  - 
@@ -278,663 +290,3 @@ AI : ( 2,4 )
 
  8  -  -  -  -  -  -  -  - 
  O : 4   X : 14	->player(O)	AI(X)
-
-player : ( 3,1 )
-    1  2  3  4  5  6  7  8  
-
- 1  -  -  -  -  -  X  -  - 
-
- 2  -  -  -  X  -  X  -  - 
-
- 3  O  O  O  X  X  X  -  - 
-
- 4  O  O  O  X  X  X  -  - 
-
- 5  -  X  -  X  X  X  -  - 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 6   X : 13	player(O)	->AI(X)
-
-AI : ( 2,2 )
-    1  2  3  4  5  6  7  8  
-
- 1  -  -  -  -  -  X  -  - 
-
- 2  -  X  -  X  -  X  -  - 
-
- 3  O  X  X  X  X  X  -  - 
-
- 4  O  X  O  X  X  X  -  - 
-
- 5  -  X  -  X  X  X  -  - 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 3   X : 17	->player(O)	AI(X)
-
-player : ( 4,7 )
-    1  2  3  4  5  6  7  8  
-
- 1  -  -  -  -  -  X  -  - 
-
- 2  -  X  -  X  -  X  -  - 
-
- 3  O  X  X  X  X  X  -  - 
-
- 4  O  X  O  O  O  O  O  - 
-
- 5  -  X  -  X  X  X  -  - 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 7   X : 14	player(O)	->AI(X)
-
-AI : ( 4,8 )
-    1  2  3  4  5  6  7  8  
-
- 1  -  -  -  -  -  X  -  - 
-
- 2  -  X  -  X  -  X  -  - 
-
- 3  O  X  X  X  X  X  -  - 
-
- 4  O  X  X  X  X  X  X  X 
-
- 5  -  X  -  X  X  X  -  - 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 2   X : 20	->player(O)	AI(X)
-
-player : ( 3,7 )
-    1  2  3  4  5  6  7  8  
-
- 1  -  -  -  -  -  X  -  - 
-
- 2  -  X  -  X  -  X  -  - 
-
- 3  O  O  O  O  O  O  O  - 
-
- 4  O  X  X  X  X  X  X  X 
-
- 5  -  X  -  X  X  X  -  - 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 8   X : 15	player(O)	->AI(X)
-
-AI : ( 2,5 )
-    1  2  3  4  5  6  7  8  
-
- 1  -  -  -  -  -  X  -  - 
-
- 2  -  X  -  X  X  X  -  - 
-
- 3  O  O  O  X  X  X  O  - 
-
- 4  O  X  X  X  X  X  X  X 
-
- 5  -  X  -  X  X  X  -  - 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 5   X : 19	->player(O)	AI(X)
-
-player : ( 1,1 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  -  X  -  - 
-
- 2  -  O  -  X  X  X  -  - 
-
- 3  O  O  O  X  X  X  O  - 
-
- 4  O  X  X  X  X  X  X  X 
-
- 5  -  X  -  X  X  X  -  - 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 7   X : 18	player(O)	->AI(X)
-
-AI : ( 2,7 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  -  X  -  - 
-
- 2  -  O  -  X  X  X  X  - 
-
- 3  O  O  O  X  X  X  X  - 
-
- 4  O  X  X  X  X  X  X  X 
-
- 5  -  X  -  X  X  X  -  - 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 6   X : 20	->player(O)	AI(X)
-
-player : ( 3,8 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  -  X  -  - 
-
- 2  -  O  -  X  X  X  X  - 
-
- 3  O  O  O  O  O  O  O  O 
-
- 4  O  X  X  X  X  X  X  X 
-
- 5  -  X  -  X  X  X  -  - 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 11   X : 16	player(O)	->AI(X)
-
-AI : ( 2,1 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  -  X  -  - 
-
- 2  X  O  -  X  X  X  X  - 
-
- 3  O  X  O  O  O  O  O  O 
-
- 4  O  X  X  X  X  X  X  X 
-
- 5  -  X  -  X  X  X  -  - 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 10   X : 18	->player(O)	AI(X)
-
-player : ( 1,8 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  -  X  -  O 
-
- 2  X  O  -  X  X  X  O  - 
-
- 3  O  X  O  O  O  O  O  O 
-
- 4  O  X  X  X  X  X  X  X 
-
- 5  -  X  -  X  X  X  -  - 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 12   X : 17	player(O)	->AI(X)
-
-AI : ( 2,8 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  -  X  -  O 
-
- 2  X  O  -  X  X  X  X  X 
-
- 3  O  X  O  O  O  O  X  X 
-
- 4  O  X  X  X  X  X  X  X 
-
- 5  -  X  -  X  X  X  -  - 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 9   X : 21	->player(O)	AI(X)
-
-player : ( 5,8 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  -  X  -  O 
-
- 2  X  O  -  X  X  X  X  O 
-
- 3  O  X  O  O  O  O  X  O 
-
- 4  O  X  X  X  X  X  O  O 
-
- 5  -  X  -  X  X  X  -  O 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 14   X : 17	player(O)	->AI(X)
-
-AI : ( 2,3 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  -  X  -  O 
-
- 2  X  X  X  X  X  X  X  O 
-
- 3  O  X  X  X  O  O  X  O 
-
- 4  O  X  X  X  X  X  O  O 
-
- 5  -  X  -  X  X  X  -  O 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 11   X : 21	->player(O)	AI(X)
-
-player : ( 1,7 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  -  X  O  O 
-
- 2  X  X  X  X  X  O  O  O 
-
- 3  O  X  X  X  O  O  O  O 
-
- 4  O  X  X  X  X  X  O  O 
-
- 5  -  X  -  X  X  X  -  O 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 15   X : 18	player(O)	->AI(X)
-
-AI : ( 5,1 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  -  X  O  O 
-
- 2  X  X  X  X  X  O  O  O 
-
- 3  X  X  X  X  O  O  O  O 
-
- 4  X  X  X  X  X  X  O  O 
-
- 5  X  X  -  X  X  X  -  O 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 13   X : 21	->player(O)	AI(X)
-
-player : ( 1,5 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  O  O  O  O 
-
- 2  X  X  X  X  O  O  O  O 
-
- 3  X  X  X  X  O  O  O  O 
-
- 4  X  X  X  X  X  X  O  O 
-
- 5  X  X  -  X  X  X  -  O 
-
- 6  -  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 16   X : 19	player(O)	->AI(X)
-
-player : ( 6,1 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  O  O  O  O 
-
- 2  O  X  X  X  O  O  O  O 
-
- 3  O  X  X  O  O  O  O  O 
-
- 4  O  X  O  X  X  X  O  O 
-
- 5  O  O  -  X  X  X  -  O 
-
- 6  O  -  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 24   X : 12	player(O)	->AI(X)
-
-AI : ( 6,2 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  O  O  O  O 
-
- 2  O  X  X  X  O  O  O  O 
-
- 3  O  X  X  O  O  O  O  O 
-
- 4  O  X  O  X  X  X  O  O 
-
- 5  O  X  -  X  X  X  -  O 
-
- 6  O  X  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 23   X : 14	->player(O)	AI(X)
-
-player : ( 5,3 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  O  O  O  O 
-
- 2  O  X  X  X  O  O  O  O 
-
- 3  O  X  X  O  O  O  O  O 
-
- 4  O  O  O  O  X  X  O  O 
-
- 5  O  O  O  X  X  X  -  O 
-
- 6  O  X  -  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 27   X : 11	player(O)	->AI(X)
-
-AI : ( 6,3 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  -  -  -  O  O  O  O 
-
- 2  O  X  X  X  O  O  O  O 
-
- 3  O  X  X  O  O  O  O  O 
-
- 4  O  O  X  O  X  X  O  O 
-
- 5  O  O  X  X  X  X  -  O 
-
- 6  O  X  X  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 25   X : 14	->player(O)	AI(X)
-
-player : ( 1,2 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  O  -  -  O  O  O  O 
-
- 2  O  O  O  X  O  O  O  O 
-
- 3  O  O  X  O  O  O  O  O 
-
- 4  O  O  X  O  X  X  O  O 
-
- 5  O  O  X  X  X  X  -  O 
-
- 6  O  X  X  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 29   X : 11	player(O)	->AI(X)
-
-AI : ( 1,3 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  O  X  -  O  O  O  O 
-
- 2  O  O  X  X  O  O  O  O 
-
- 3  O  O  X  O  O  O  O  O 
-
- 4  O  O  X  O  X  X  O  O 
-
- 5  O  O  X  X  X  X  -  O 
-
- 6  O  X  X  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 28   X : 13	->player(O)	AI(X)
-
-player : ( 1,4 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  O  O  O  O  O  O  O 
-
- 2  O  O  O  O  O  O  O  O 
-
- 3  O  O  X  O  O  O  O  O 
-
- 4  O  O  X  O  X  X  O  O 
-
- 5  O  O  X  X  X  X  -  O 
-
- 6  O  X  X  -  -  -  -  - 
-
- 7  -  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 32   X : 10	player(O)	->AI(X)
-
-player : ( 7,1 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  O  O  O  O  O  O  O 
-
- 2  O  O  O  O  O  O  O  O 
-
- 3  O  O  X  O  O  O  O  O 
-
- 4  O  O  X  O  X  X  O  O 
-
- 5  O  O  O  X  X  X  -  O 
-
- 6  O  O  X  -  -  -  -  - 
-
- 7  O  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 35   X : 8	player(O)	->AI(X)
-
-player : ( 5,7 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  O  O  O  O  O  O  O 
-
- 2  O  O  O  O  O  O  O  O 
-
- 3  O  O  X  O  O  O  O  O 
-
- 4  O  O  X  O  X  O  O  O 
-
- 5  O  O  O  O  O  O  O  O 
-
- 6  O  O  X  -  -  -  -  - 
-
- 7  O  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 40   X : 4	player(O)	->AI(X)
-
-AI : ( 6,7 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  O  O  O  O  O  O  O 
-
- 2  O  O  O  O  O  O  O  O 
-
- 3  O  O  X  O  O  O  O  O 
-
- 4  O  O  X  O  X  O  O  O 
-
- 5  O  O  O  O  O  X  O  O 
-
- 6  O  O  X  -  -  -  X  - 
-
- 7  O  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 39   X : 6	->player(O)	AI(X)
-
-player : ( 6,4 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  O  O  O  O  O  O  O 
-
- 2  O  O  O  O  O  O  O  O 
-
- 3  O  O  X  O  O  O  O  O 
-
- 4  O  O  X  O  X  O  O  O 
-
- 5  O  O  O  O  O  X  O  O 
-
- 6  O  O  O  O  -  -  X  - 
-
- 7  O  -  -  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 41   X : 5	player(O)	->AI(X)
-
-AI : ( 7,3 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  O  O  O  O  O  O  O 
-
- 2  O  O  O  O  O  O  O  O 
-
- 3  O  O  X  O  O  O  O  O 
-
- 4  O  O  X  O  X  O  O  O 
-
- 5  O  O  X  O  O  X  O  O 
-
- 6  O  O  X  O  -  -  X  - 
-
- 7  O  -  X  -  -  -  -  - 
-
- 8  -  -  -  -  -  -  -  - 
- O : 39   X : 8	->player(O)	AI(X)
-
-player : ( 8,3 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  O  O  O  O  O  O  O 
-
- 2  O  O  O  O  O  O  O  O 
-
- 3  O  O  O  O  O  O  O  O 
-
- 4  O  O  O  O  X  O  O  O 
-
- 5  O  O  O  O  O  X  O  O 
-
- 6  O  O  O  O  -  -  X  - 
-
- 7  O  -  O  -  -  -  -  - 
-
- 8  -  -  O  -  -  -  -  - 
- O : 45   X : 3	player(O)	->AI(X)
-
-AI : ( 7,2 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  O  O  O  O  O  O  O 
-
- 2  O  O  O  O  O  O  O  O 
-
- 3  O  O  O  O  O  O  O  O 
-
- 4  O  O  O  O  X  O  O  O 
-
- 5  O  O  O  X  O  X  O  O 
-
- 6  O  O  X  O  -  -  X  - 
-
- 7  O  X  O  -  -  -  -  - 
-
- 8  -  -  O  -  -  -  -  - 
- O : 43   X : 6	->player(O)	AI(X)
-
-player : ( 8,1 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  O  O  O  O  O  O  O 
-
- 2  O  O  O  O  O  O  O  O 
-
- 3  O  O  O  O  O  O  O  O 
-
- 4  O  O  O  O  O  O  O  O 
-
- 5  O  O  O  O  O  X  O  O 
-
- 6  O  O  O  O  -  -  X  - 
-
- 7  O  O  O  -  -  -  -  - 
-
- 8  O  -  O  -  -  -  -  - 
- O : 48   X : 2	player(O)	->AI(X)
-
-player : ( 7,8 )
-    1  2  3  4  5  6  7  8  
-
- 1  O  O  O  O  O  O  O  O 
-
- 2  O  O  O  O  O  O  O  O 
-
- 3  O  O  O  O  O  O  O  O 
-
- 4  O  O  O  O  O  O  O  O 
-
- 5  O  O  O  O  O  O  O  O 
-
- 6  O  O  O  O  -  -  O  - 
-
- 7  O  O  O  -  -  -  -  O 
-
- 8  O  -  O  -  -  -  -  - 
- O : 51   X : 0	player(O)	->AI(X)
